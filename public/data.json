@@ -1,0 +1,128 @@
+[
+  {
+    "product_id": "1",
+    "product_title": "Gaming Laptop",
+    "product_image": "https://i.ibb.co.com/TTbYSBQ/laptop.jpg",
+    "category": "Laptop",
+    "price": 1299.99,
+    "description": "High-performance gaming laptop with powerful graphics.",
+    "Specification": ["16GB RAM", "512GB SSD", "NVIDIA GTX 1660"],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "product_id": "2",
+    "product_title": "Business Laptop",
+    "product_image": "https://i.ibb.co.com/7Gs5r3p/laptop1.jpg",
+    "category": "Laptop",
+    "price": 899.99,
+    "description": "Sleek business laptop with long battery life.",
+    "Specification": ["8GB RAM", "256GB SSD", "Intel i5 processor"],
+    "availability": true,
+    "rating": 4.5
+  },
+  {
+    "product_id": "3",
+    "product_title": "Smartphone",
+    "product_image": "https://i.ibb.co.com/yBz7jkF/phone2.jpg",
+    "category": "Phone",
+    "price": 699.99,
+    "description": "Latest smartphone with advanced camera features.",
+    "Specification": ["128GB storage", "5G compatible", "Triple-camera system"],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "product_id": "4",
+    "product_title": "Wireless Earbuds",
+    "product_image": "https://i.ibb.co.com/L6DmG9g/Acsseroies.jpg",
+    "category": "Accessories",
+    "price": 149.99,
+    "description": "True wireless earbuds with noise cancellation.",
+    "Specification": [
+      "Bluetooth 5.0",
+      "30-hour battery life",
+      "Touch controls"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+  {
+    "product_id": "5",
+    "product_title": "Laptop Stand",
+    "product_image": "https://i.ibb.co.com/tqMft8n/Acsseroies2.jpg",
+    "category": "Accessories",
+    "price": 49.99,
+    "description": "Adjustable laptop stand for better ergonomics.",
+    "Specification": ["Aluminum material", "Height adjustable", "Foldable"],
+    "availability": true,
+    "rating": 4.4
+  },
+  {
+    "product_id": "6",
+    "product_title": "Phone Case",
+    "product_image": "https://i.ibb.co.com/NFLNmJS/Acsseroies3.jpg",
+    "category": "Accessories",
+    "price": 19.99,
+    "description": "Durable phone case with drop protection.",
+    "Specification": [
+      "Shock-absorbent",
+      "Slim design",
+      "Available in multiple colors"
+    ],
+    "availability": true,
+    "rating": 4.3
+  },
+  {
+    "product_id": "7",
+    "product_title": "External Hard Drive",
+    "product_image": "https://i.ibb.co.com/6XTvbfB/Acsseroies4.jpg",
+    "category": "Accessories",
+    "price": 89.99,
+    "description": "Portable external hard drive for extra storage.",
+    "Specification": ["1TB storage", "USB 3.0", "Compact design"],
+    "availability": true,
+    "rating": 4.5
+  },
+  {
+    "product_id": "8",
+    "product_title": "4K Monitor",
+    "product_image": "https://i.ibb.co.com/BP0gP02/laptop2.jpg",
+    "category": "Laptop",
+    "price": 399.99,
+    "description": "High-resolution monitor for enhanced productivity.",
+    "Specification": [
+      "3840 x 2160",
+      "HDR support",
+      "Multiple connectivity options"
+    ],
+    "availability": false,
+    "rating": 4.9
+  },
+  {
+    "product_id": "9",
+    "product_title": "Bluetooth Keyboard",
+    "product_image": "https://i.ibb.co.com/XCpYp6N/phone3.jpg",
+    "category": "Phone",
+    "price": 59.99,
+    "description": "Compact Bluetooth keyboard for on-the-go typing.",
+    "Specification": [
+      "Rechargeable battery",
+      "Silent keys",
+      "Compatible with multiple devices"
+    ],
+    "availability": true,
+    "rating": 4.4
+  },
+  {
+    "product_id": "10",
+    "product_title": "Smartphone Charger",
+    "product_image": "https://i.ibb.co.com/1KT6h62/phone1.jpg",
+    "category": "Phone",
+    "price": 29.99,
+    "description": "Fast charging wall adapter for smartphones.",
+    "Specification": ["18W output", "USB-C compatible", "Compact size"],
+    "availability": true,
+    "rating": 4.2
+  }
+]
