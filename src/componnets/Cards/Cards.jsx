@@ -1,17 +1,27 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLoaderData, useRouteLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
+import DataNotFound from "../ErrorBoundry/DataNotFound";
+import Card from "./Card";
 
 const Cards = () => {
   const data = useLoaderData();
   const [cardsData, setCardsData] = useState([]);
+  const [btnName, setBtnName] = useState(true);
   useEffect(() => {
     setCardsData(data);
   }, []);
   // console.log(cardsData.length);
   // error route defind korte hobe..
+  // console.log(btnName);
 
   const cetagorisHandel = (nam) => {
-    console.log(nam);
+    // console.log(nam);
+    if (nam) {
+      setBtnName(true);
+    } else if (!nam) {
+      setBtnName(false);
+      return;
+    }
     if (nam === "All Products") {
       setCardsData(data);
       return;
@@ -37,7 +47,7 @@ const Cards = () => {
       <h2 className="text-center text-3xl font-semibold ">
         Explore Cutting-Edge Gadgets
       </h2>
-      <div className=" md:flex">
+      <div className=" md:flex ">
         <div className=" text-nowrap space-y-5 mr-8">
           <div>
             <NavLink onClick={() => cetagorisHandel("All Products")}>
@@ -64,45 +74,26 @@ const Cards = () => {
             </NavLink>
           </div>
           <div>
-            <NavLink onClick={() => cetagorisHandel("MacBook")}>
+            <NavLink onClick={() => cetagorisHandel("")}>
               <button className="btn text-lg rounded-full w-40 ">
                 MacBook
               </button>
             </NavLink>
           </div>
           <div>
-            <NavLink onClick={() => cetagorisHandel("Iphone")}>
+            <NavLink onClick={() => cetagorisHandel("")}>
               <button className="btn text-lg rounded-full w-40 mb-5">
                 Iphone
               </button>
             </NavLink>
           </div>
         </div>
-        <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto">
-          {cardsData.map((carditem) => (
-            <div
-              className=" card-compact bg-base-100  shadow-xl rounded-lg"
-              key={carditem.product_id}
-            >
-              <figure>
-                <img
-                  className="h-[200px] w-full object-fill p-3 rounded-3xl"
-                  src={carditem.product_image}
-                  alt=""
-                />
-              </figure>
-              <div className="card-body ">
-                <h2 className="card-title ">{carditem.product_title}</h2>
-                <p>{carditem.description}</p>
-                <p>{carditem.price} $</p>
-                <div>
-                  <button className="btn rounded-full border-violet-600">
-                    Products Ditails
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div>
+          {btnName ? (
+            <Card cardsData={cardsData}></Card>
+          ) : (
+            <DataNotFound></DataNotFound>
+          )}
         </div>
       </div>
     </div>
