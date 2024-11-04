@@ -1,28 +1,34 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useRouteLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData, useRouteLoaderData } from "react-router-dom";
 
 const Cards = () => {
   const data = useLoaderData();
   const [cardsData, setCardsData] = useState([]);
-  //   btn func state
-  const [valubtn, setValubtn] = useState("");
   useEffect(() => {
     setCardsData(data);
   }, []);
-  //   console.log(cardsData.length);
-  //   akhan thake kaj suru
+  // console.log(cardsData.length);
+  // error route defind korte hobe..
+
   const cetagorisHandel = (nam) => {
+    console.log(nam);
     if (nam === "All Products") {
-      setValubtn(nam);
+      setCardsData(data);
       return;
-    } else if (nam === "Phone") {
-      setValubtn(nam);
+    }
+    if (nam === "Phone") {
+      const filterPhone = data.filter((item) => item.category === nam);
+      setCardsData(filterPhone);
       return;
-    } else if (nam === "Laptop") {
-      setValubtn(nam);
+    }
+    if (nam === "Accessories") {
+      const filterAccessories = data.filter((item) => item.category === nam);
+      setCardsData(filterAccessories);
       return;
-    } else if (nam === "Accessories") {
-      setValubtn(nam);
+    }
+    if (nam === "Laptop") {
+      const filterLaptop = data.filter((item) => item.category === nam);
+      setCardsData(filterLaptop);
       return;
     }
   };
@@ -34,84 +40,65 @@ const Cards = () => {
       <div className=" md:flex">
         <div className=" text-nowrap space-y-5 mr-8">
           <div>
-            <button
-              className={
-                valubtn
-                  ? "btn btn-accent text-lg rounded-full w-40"
-                  : "btn text-lg rounded-full w-40"
-              }
-              onClick={() => cetagorisHandel("All Products")}
-            >
-              All Products
-            </button>
+            <NavLink onClick={() => cetagorisHandel("All Products")}>
+              <button className="btn text-lg rounded-full w-40">
+                All Products
+              </button>
+            </NavLink>
           </div>
           <div>
-            <button
-              className={
-                valubtn
-                  ? "btn btn-accent text-lg rounded-full w-40"
-                  : "btn text-lg rounded-full w-40"
-              }
-              onClick={() => cetagorisHandel("Phone")}
-            >
-              Phone
-            </button>
+            <NavLink onClick={() => cetagorisHandel("Phone")}>
+              <button className="btn text-lg rounded-full w-40">Phone</button>
+            </NavLink>
           </div>
           <div>
-            <button
-              className={
-                valubtn
-                  ? "btn btn-accent text-lg rounded-full w-40"
-                  : "btn text-lg rounded-full w-40"
-              }
-              onClick={() => cetagorisHandel("Laptop")}
-            >
-              Laptop
-            </button>
+            <NavLink onClick={() => cetagorisHandel("Laptop")}>
+              <button className="btn text-lg rounded-full w-40">Laptop</button>
+            </NavLink>
           </div>
           <div>
-            <button
-              className={
-                valubtn
-                  ? "btn btn-accent text-lg rounded-full w-40"
-                  : "btn text-lg rounded-full w-40"
-              }
-              onClick={() => cetagorisHandel("Accessories")}
-            >
-              Accessories
-            </button>
+            <NavLink onClick={() => cetagorisHandel("Accessories")}>
+              <button className="btn text-lg rounded-full w-40">
+                Accessories
+              </button>
+            </NavLink>
           </div>
           <div>
-            <button
-              className="btn text-lg rounded-full w-40 "
-              onClick={() => cetagorisHandel("MacBook")}
-            >
-              MacBook
-            </button>
+            <NavLink onClick={() => cetagorisHandel("MacBook")}>
+              <button className="btn text-lg rounded-full w-40 ">
+                MacBook
+              </button>
+            </NavLink>
           </div>
           <div>
-            <button
-              className="btn text-lg rounded-full w-40 mb-5"
-              onClick={() => cetagorisHandel("Iphone")}
-            >
-              Iphone
-            </button>
+            <NavLink onClick={() => cetagorisHandel("Iphone")}>
+              <button className="btn text-lg rounded-full w-40 mb-5">
+                Iphone
+              </button>
+            </NavLink>
           </div>
         </div>
         <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto">
-          {cardsData.map((carditem, index) => (
-            <div className=" card-compact bg-base-100  shadow-xl ">
+          {cardsData.map((carditem) => (
+            <div
+              className=" card-compact bg-base-100  shadow-xl rounded-lg"
+              key={carditem.product_id}
+            >
               <figure>
                 <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
+                  className="h-[200px] w-full object-fill p-3 rounded-3xl"
+                  src={carditem.product_image}
+                  alt=""
                 />
               </figure>
-              <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="">
-                  <button className="btn btn-primary">Buy Now</button>
+              <div className="card-body ">
+                <h2 className="card-title ">{carditem.product_title}</h2>
+                <p>{carditem.description}</p>
+                <p>{carditem.price} $</p>
+                <div>
+                  <button className="btn rounded-full border-violet-600">
+                    Products Ditails
+                  </button>
                 </div>
               </div>
             </div>

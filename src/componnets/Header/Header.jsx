@@ -4,9 +4,10 @@ import { GiSelfLove } from "react-icons/gi";
 import HederTitel from "./HederTitel";
 
 const Header = () => {
+  const titel = " Upgrade Your Tech Accessorize with Gadget Heaven Accessories";
   return (
-    <div className="bg-violet-800  px-8 py-5 rounded-xl">
-      <div className="flex items-center justify-between">
+    <div className="bg-violet-800 mt-3  rounded-xl">
+      <div className="  flex items-center justify-between px-8 py-5">
         <h3 className=" text-center font-bold text-violet-400">
           Gadget Heaven
         </h3>
@@ -39,7 +40,7 @@ const Header = () => {
         </div>
       </div>
       <div className="text-center">
-        <HederTitel></HederTitel>
+        <HederTitel titel={titel}></HederTitel>
       </div>
     </div>
   );
