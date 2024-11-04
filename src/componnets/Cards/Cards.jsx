@@ -43,7 +43,7 @@ const Cards = () => {
     }
   };
   return (
-    <div className=" space-y-10 pt-10">
+    <div className=" space-y-10 pt-10 mt-72">
       <h2 className="text-center text-3xl font-semibold ">
         Explore Cutting-Edge Gadgets
       </h2>

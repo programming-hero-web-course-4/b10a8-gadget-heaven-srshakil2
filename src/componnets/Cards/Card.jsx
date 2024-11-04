@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Card = ({ cardsData }) => {
   const { handelDitailsBtn } = useContext(handelDitailsContext);
-  console.log(typeof handelDitailsBtn);
+  //   console.log(typeof handelDitailsBtn);
   return (
     <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto">
       {cardsData.map((carditem) => (
@@ -24,11 +24,11 @@ const Card = ({ cardsData }) => {
             <p>{carditem.description}</p>
             <p>{carditem.price} $</p>
             <div>
-              <NavLink>
-                <button
-                  className="btn rounded-full border-violet-600"
-                  //   onClick={() => handelDitailsBtn(carditem.product_id)}
-                >
+              <NavLink
+                to={"/details"}
+                onClick={() => handelDitailsBtn(carditem)}
+              >
+                <button className="btn rounded-full border-violet-600">
                   Products Ditails
                 </button>
               </NavLink>

@@ -2,9 +2,15 @@ import { NavLink } from "react-router-dom";
 import { ImCart } from "react-icons/im";
 import { GiSelfLove } from "react-icons/gi";
 import HederTitel from "./HederTitel";
+//
+import { useContext } from "react";
+import { handelDitailsContext } from "../Main/Main";
+import BannerImg from "../Header2/BannerImg";
+//
 
 const Header = () => {
-  const titel = " Upgrade Your Tech Accessorize with Gadget Heaven Accessories";
+  const { imgs } = useContext(handelDitailsContext);
+  console.log(imgs);
   return (
     <div className="bg-violet-800 mt-3  rounded-xl">
       <div className="  flex items-center justify-between px-8 py-5">
@@ -40,8 +46,9 @@ const Header = () => {
         </div>
       </div>
       <div className="text-center">
-        <HederTitel titel={titel}></HederTitel>
+        <HederTitel></HederTitel>
       </div>
+      <div>{imgs ? <BannerImg></BannerImg> : ""}</div>
     </div>
   );
 };

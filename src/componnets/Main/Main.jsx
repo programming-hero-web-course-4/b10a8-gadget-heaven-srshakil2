@@ -1,16 +1,27 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const handelDitailsContext = createContext();
+
 const Main = () => {
-  const handelDitailsBtn = () => {
-    console.log("hjgjghg");
+  const [dataItem, setDataItem] = useState();
+  const [imgs, setImgs] = useState(true);
+
+  // console.log(dataItem);
+  const handelDitailsBtn = (item) => {
+    // console.log(item);
+    // akhan thake suru
+    setDataItem(item);
+    if (imgs) {
+      setImgs(false);
+      return;
+    }
   };
-  console.log(typeof handelDitailsBtn);
+
   return (
-    <handelDitailsContext.Provider value={handelDitailsBtn}>
+    <handelDitailsContext.Provider value={{ handelDitailsBtn, dataItem, imgs }}>
       <div className="w-11/12 mx-auto">
         {/* header */}
         <div>

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div>
+    <div className=" mt-52">
       <div className=" text-center p-10">
         <h4 className="text-2xl font-semibold">Gadget Heaven</h4>
         <p>Leading the way in cutting-edge technology and innovation.</p>
