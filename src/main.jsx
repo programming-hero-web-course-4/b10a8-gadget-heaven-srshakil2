@@ -15,6 +15,7 @@ import Dashboard from "./componnets/Dashboard/Dashboard";
 const router = createBrowserRouter([
   {
     path: "/",
+    loader: () => fetch("/data.json"),
     element: <Main></Main>,
     errorElement: <ErrorBoundry />,
     children: [
@@ -25,11 +26,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:product_id",
-        loader: ({ params }) => fetch(`/data.json/${params.product_id}`),
+        loader: ({ params }) => fetch(`/data.json`),
         element: <ProductDetails></ProductDetails>,
       },
       {
-        path: "/details/dashboard",
+        path: "/dashboard",
         element: <Dashboard></Dashboard>,
       },
       {

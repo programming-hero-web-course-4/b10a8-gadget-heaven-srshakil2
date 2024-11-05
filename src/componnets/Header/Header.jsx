@@ -9,9 +9,11 @@ import BannerImg from "../Header2/BannerImg";
 //
 
 const Header = () => {
+  const { handelDashboard } = useContext(handelDitailsContext);
   const { imgs } = useContext(handelDitailsContext);
   const { cardData } = useContext(handelDitailsContext);
   const { cardNavLove } = useContext(handelDitailsContext);
+
   // console.log(cardNavLove.length);
   // console.log(imgs);
   return (
@@ -23,7 +25,7 @@ const Header = () => {
         {/* home navlink */}
         <div className=" flex items-center justify-center gap-10 text-violet-400">
           <div>
-            <NavLink to={"/"}>
+            <NavLink to={"/"} onClick={() => handelDashboard("Home")}>
               <button>Home</button>
             </NavLink>
           </div>
@@ -33,7 +35,10 @@ const Header = () => {
             </NavLink>
           </div>
           <div>
-            <NavLink to={"/details/dashboard"}>
+            <NavLink
+              to={"/dashboard"}
+              onClick={() => handelDashboard("Dashboard")}
+            >
               <button>Dashboard</button>
             </NavLink>
           </div>

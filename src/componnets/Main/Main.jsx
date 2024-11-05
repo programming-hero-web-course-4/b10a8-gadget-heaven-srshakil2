@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { createContext, useState } from "react";
@@ -10,9 +10,41 @@ const Main = () => {
   const [imgs, setImgs] = useState(true);
   const [cardData, setCardData] = useState([]);
   const [cardNavLove, setCardNavLove] = useState([]);
+  // togol titel btn
+  const [togolBtn, setTogolBtn] = useState(true);
+  const togolFun = (names) => {
+    if (names === "Cart") {
+      setTogolBtn(true);
+      return;
+    }
+    if (names === "Wishlist") {
+      setTogolBtn(false);
+    }
+  };
+  // togol titel btn e
+
+  //
+  const [titel, setTitel] = useState({
+    name: "Upgrade Your Tech Accessorize with Gadget Heaven Accessories",
+  });
+  //
 
   // console.log(cardData.length);
   // console.log(dataItem);
+
+  const handelDashboard = (navName) => {
+    if (navName === "Home") {
+      setTitel({
+        name: "Upgrade Your Tech Accessorize with Gadget Heaven Accessories",
+      });
+    }
+    if (navName === "Dashboard") {
+      setTitel({
+        name: "Dashboard",
+      });
+    }
+  };
+
   const handelAddCard = (card, name) => {
     // console.log(name);
     if (name === "troly") {
@@ -40,6 +72,10 @@ const Main = () => {
         handelAddCard,
         cardData,
         cardNavLove,
+        handelDashboard,
+        titel,
+        togolFun,
+        togolBtn,
       }}
     >
       <div className="w-11/12 mx-auto">

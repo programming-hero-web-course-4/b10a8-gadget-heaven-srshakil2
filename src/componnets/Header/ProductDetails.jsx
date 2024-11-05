@@ -1,13 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { handelDitailsContext } from "../Main/Main";
 import { BsCheckAll, BsCart2 } from "react-icons/bs";
 import { ImCart } from "react-icons/im";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 const ProductDetails = () => {
   const { handelAddCard } = useContext(handelDitailsContext);
-  const { dataItem } = useContext(handelDitailsContext);
+
+  const [cardItem, setCardItem] = useState({});
+  const { product_id } = useParams();
   const data = useLoaderData();
-  console.log(data);
+
+  useEffect(() => {
+    const cart = data.find((i) => i.product_id == product_id);
+    setCardItem(cart);
+  }, [data, product_id]);
+
+  // nnnnnnnnnn
   const {
     product_title,
     product_image,
@@ -15,7 +23,7 @@ const ProductDetails = () => {
     description,
     rating,
     Specification,
-  } = dataItem;
+  } = cardItem;
   // console.log(Specification);
   return (
     <div className=" bg-white p-2 shadow-lg  rounded-lg absolute top-64 lg:ml-60 md:ml-40">
@@ -80,7 +88,7 @@ const ProductDetails = () => {
           <div className=" flex gap-3 items-center">
             <div>
               <button
-                onClick={() => handelAddCard(dataItem, "troly")}
+                onClick={() => handelAddCard(cardItem, "troly")}
                 className=" btn flex items-center gap-4 bg-violet-500 text-white px-8 py-3 font-bold rounded-full"
               >
                 <span>Add To Card</span>
@@ -91,7 +99,7 @@ const ProductDetails = () => {
             </div>
             <div>
               <button
-                onClick={() => handelAddCard(dataItem, "love")}
+                onClick={() => handelAddCard(cardItem, "love")}
                 className=" btn bg-gray-400 p-5 rounded-full text-white"
               >
                 <ImCart />

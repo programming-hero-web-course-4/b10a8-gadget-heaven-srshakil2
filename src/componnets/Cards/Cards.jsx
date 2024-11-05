@@ -5,13 +5,13 @@ import Card from "./Card";
 
 const Cards = () => {
   const data = useLoaderData();
+  // console.log(data);
   const [cardsData, setCardsData] = useState([]);
   const [btnName, setBtnName] = useState(true);
   useEffect(() => {
     setCardsData(data);
   }, []);
   // console.log(cardsData.length);
-  // error route defind korte hobe..
   // console.log(btnName);
 
   const cetagorisHandel = (nam) => {
