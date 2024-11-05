@@ -5,7 +5,7 @@ const HederTitel = () => {
   const titel = " Upgrade Your Tech Accessorize with Gadget Heaven Accessories";
   const { dataItem } = useContext(handelDitailsContext);
 
-  // console.log(dataItem);
+  // console.log(dataItem.length);
 
   return (
     <div>

@@ -8,6 +8,7 @@ import ErrorBoundry from "./componnets/ErrorBoundry/ErrorBoundry";
 import DataNotFound from "./componnets/ErrorBoundry/DataNotFound";
 import ProductDetails from "./componnets/Header/ProductDetails";
 import Header from "./componnets/Header/Header";
+import Dashboard from "./componnets/Dashboard/Dashboard";
 // import HederTitel from "./componnets/Header/HederTitel";
 // import Header from "./componnets/Header/Header";
 
@@ -20,11 +21,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Cards></Cards>,
-        loader: () => fetch("./data.json"),
+        loader: () => fetch("/data.json"),
       },
       {
-        path: "/details",
+        path: "/product/:product_id",
+        loader: ({ params }) => fetch(`/data.json/${params.product_id}`),
         element: <ProductDetails></ProductDetails>,
+      },
+      {
+        path: "/details/dashboard",
+        element: <Dashboard></Dashboard>,
       },
       {
         path: "/noData",

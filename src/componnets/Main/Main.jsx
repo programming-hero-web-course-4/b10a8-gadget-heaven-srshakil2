@@ -8,11 +8,22 @@ export const handelDitailsContext = createContext();
 const Main = () => {
   const [dataItem, setDataItem] = useState();
   const [imgs, setImgs] = useState(true);
+  const [cardData, setCardData] = useState([]);
+  const [cardNavLove, setCardNavLove] = useState([]);
 
+  // console.log(cardData.length);
   // console.log(dataItem);
+  const handelAddCard = (card, name) => {
+    // console.log(name);
+    if (name === "troly") {
+      setCardData([...cardData, card]);
+      return;
+    } else {
+      setCardNavLove([...cardNavLove, card]);
+    }
+  };
   const handelDitailsBtn = (item) => {
     // console.log(item);
-    // akhan thake suru
     setDataItem(item);
     if (imgs) {
       setImgs(false);
@@ -21,7 +32,16 @@ const Main = () => {
   };
 
   return (
-    <handelDitailsContext.Provider value={{ handelDitailsBtn, dataItem, imgs }}>
+    <handelDitailsContext.Provider
+      value={{
+        handelDitailsBtn,
+        dataItem,
+        imgs,
+        handelAddCard,
+        cardData,
+        cardNavLove,
+      }}
+    >
       <div className="w-11/12 mx-auto">
         {/* header */}
         <div>

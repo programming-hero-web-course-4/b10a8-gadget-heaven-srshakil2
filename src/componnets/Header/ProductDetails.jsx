@@ -2,8 +2,12 @@ import { useContext } from "react";
 import { handelDitailsContext } from "../Main/Main";
 import { BsCheckAll, BsCart2 } from "react-icons/bs";
 import { ImCart } from "react-icons/im";
+import { useLoaderData } from "react-router-dom";
 const ProductDetails = () => {
+  const { handelAddCard } = useContext(handelDitailsContext);
   const { dataItem } = useContext(handelDitailsContext);
+  const data = useLoaderData();
+  console.log(data);
   const {
     product_title,
     product_image,
@@ -12,7 +16,7 @@ const ProductDetails = () => {
     rating,
     Specification,
   } = dataItem;
-  console.log(Specification);
+  // console.log(Specification);
   return (
     <div className=" bg-white p-2 shadow-lg  rounded-lg absolute top-64 lg:ml-60 md:ml-40">
       <div className=" flex flex-col lg:flex-row gap-8">
@@ -26,8 +30,8 @@ const ProductDetails = () => {
           <p className=" font-semibold">{description}</p>
           <div>
             <h5 className=" text-lg font-semibold">Specification :</h5>
-            {Specification.map((data) => (
-              <p className=" flex items-center gap-2">
+            {Specification?.map((data, index) => (
+              <p key={index} className=" flex items-center gap-2">
                 <span>
                   <BsCheckAll />
                 </span>
@@ -75,7 +79,10 @@ const ProductDetails = () => {
           {/* btn */}
           <div className=" flex gap-3 items-center">
             <div>
-              <button className=" btn flex items-center gap-4 bg-violet-500 text-white px-8 py-3 font-bold rounded-full">
+              <button
+                onClick={() => handelAddCard(dataItem, "troly")}
+                className=" btn flex items-center gap-4 bg-violet-500 text-white px-8 py-3 font-bold rounded-full"
+              >
                 <span>Add To Card</span>
                 <span>
                   <BsCart2 />
@@ -83,7 +90,10 @@ const ProductDetails = () => {
               </button>
             </div>
             <div>
-              <button className=" btn bg-gray-400 p-5 rounded-full text-white">
+              <button
+                onClick={() => handelAddCard(dataItem, "love")}
+                className=" btn bg-gray-400 p-5 rounded-full text-white"
+              >
                 <ImCart />
               </button>
             </div>

@@ -10,7 +10,10 @@ import BannerImg from "../Header2/BannerImg";
 
 const Header = () => {
   const { imgs } = useContext(handelDitailsContext);
-  console.log(imgs);
+  const { cardData } = useContext(handelDitailsContext);
+  const { cardNavLove } = useContext(handelDitailsContext);
+  // console.log(cardNavLove.length);
+  // console.log(imgs);
   return (
     <div className="bg-violet-800 mt-3  rounded-xl">
       <div className="  flex items-center justify-between px-8 py-5">
@@ -20,7 +23,7 @@ const Header = () => {
         {/* home navlink */}
         <div className=" flex items-center justify-center gap-10 text-violet-400">
           <div>
-            <NavLink>
+            <NavLink to={"/"}>
               <button>Home</button>
             </NavLink>
           </div>
@@ -30,18 +33,28 @@ const Header = () => {
             </NavLink>
           </div>
           <div>
-            <NavLink>
+            <NavLink to={"/details/dashboard"}>
               <button>Dashboard</button>
             </NavLink>
           </div>
         </div>
         {/* icon */}
         <div className="flex items-center justify-center gap-10">
-          <div className="bg-white border-2 p-3 rounded-full">
-            <ImCart />
+          <div className="bg-white border-2 p-3 rounded-full relative">
+            <p className=" absolute top-0 right-1 font-semibold">
+              {cardData.length}
+            </p>
+            <p>
+              <ImCart />
+            </p>
           </div>
-          <div className="bg-white border-2 p-3 rounded-full">
-            <GiSelfLove />
+          <div className="bg-white border-2 p-3 rounded-full relative">
+            <p className=" font-semibold absolute top-0 right-1">
+              {cardNavLove.length}
+            </p>
+            <p>
+              <GiSelfLove />
+            </p>
           </div>
         </div>
       </div>

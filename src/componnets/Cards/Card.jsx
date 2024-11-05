@@ -25,7 +25,7 @@ const Card = ({ cardsData }) => {
             <p>{carditem.price} $</p>
             <div>
               <NavLink
-                to={"/details"}
+                to={`/product/${carditem.product_id}`}
                 onClick={() => handelDitailsBtn(carditem)}
               >
                 <button className="btn rounded-full border-violet-600">
