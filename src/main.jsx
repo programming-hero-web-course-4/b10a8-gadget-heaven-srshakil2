@@ -14,6 +14,7 @@ import DataNotFound from "./componnets/ErrorBoundry/DataNotFound";
 import ProductDetails from "./componnets/Header/ProductDetails";
 import Header from "./componnets/Header/Header";
 import Dashboard from "./componnets/Dashboard/Dashboard";
+import Chart from "./componnets/Chart/Chart";
 // import HederTitel from "./componnets/Header/HederTitel";
 // import Header from "./componnets/Header/Header";
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/chart",
+        element: <Chart></Chart>,
       },
       {
         path: "/noData",

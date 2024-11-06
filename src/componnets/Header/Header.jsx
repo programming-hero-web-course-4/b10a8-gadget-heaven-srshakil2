@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 
 const Header = () => {
   const { handelDashboard } = useContext(handelDitailsContext);
+  // const { chartBtn } = useContext(handelDitailsContext);
   const { imgs } = useContext(handelDitailsContext);
   const { cardData } = useContext(handelDitailsContext);
   const { cardNavLove } = useContext(handelDitailsContext);
@@ -34,7 +35,10 @@ const Header = () => {
             </NavLink>
           </div>
           <div>
-            <NavLink>
+            <NavLink
+              to={"/chart"}
+              onClick={() => handelDashboard("Statistics")}
+            >
               <button>Statistics</button>
             </NavLink>
           </div>

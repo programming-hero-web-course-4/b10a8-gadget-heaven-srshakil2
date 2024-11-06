@@ -51,6 +51,9 @@ const Main = () => {
         name: "Dashboard",
       });
     }
+    if (navName === "Statistics") {
+      setImgs(false);
+    }
   };
 
   const handelAddCard = (card, name) => {
@@ -70,6 +73,9 @@ const Main = () => {
       setImgs(false);
     }
   };
+  // const chartBtn = (n) => {
+  //   console.log(n);
+  // };
 
   return (
     <handelDitailsContext.Provider
