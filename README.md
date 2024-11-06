@@ -1,4 +1,4 @@
-## Veraitice Products Webpage
+## Various Products Webpage
 
 # Authors by :
 
@@ -8,7 +8,7 @@
 
 ## GitHub Classroom: [https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-srshakil2](https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-srshakil2)
 
-## Surge Live link: [assignment-8-robiul-hasan2.surge.sh](assignment-8-robiul-hasan2.surge.sh)
+## Surge Live link: [https://assignment-8-robiul-hasan2.surge.sh/](https://assignment-8-robiul-hasan2.surge.sh/)
 
 ### This website ready to
 
