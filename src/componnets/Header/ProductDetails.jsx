@@ -3,6 +3,7 @@ import { handelDitailsContext } from "../Main/Main";
 import { BsCheckAll, BsCart2 } from "react-icons/bs";
 import { ImCart } from "react-icons/im";
 import { useLoaderData, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 const ProductDetails = () => {
   const { handelAddCard } = useContext(handelDitailsContext);
 
@@ -32,7 +33,10 @@ const ProductDetails = () => {
         <div className=" space-y-4">
           <h1 className="text-4xl font-bold">{product_title}</h1>
           <p className=" text-lg font-semibold">Price:$ {price}</p>
-          <div className="btn rounded-full w-[150px] border-lime-600 bg-lime-100 font-semibold">
+          <div
+            onClick={() => toast.error("No Data Here")}
+            className="btn rounded-full w-[150px] border-lime-600 bg-lime-100 font-semibold"
+          >
             <button>In Stock</button>
           </div>
           <p className=" font-semibold">{description}</p>

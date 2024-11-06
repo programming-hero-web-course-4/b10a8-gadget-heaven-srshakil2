@@ -1,15 +1,21 @@
 import { Outlet, useLoaderData } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import BannerImg from "../Header2/BannerImg";
+import { toast } from "react-toastify";
 
 export const handelDitailsContext = createContext();
 
 const Main = () => {
   const [dataItem, setDataItem] = useState();
-  const [imgs, setImgs] = useState(true);
+  const [imgs, setImgs] = useState(false);
   const [cardData, setCardData] = useState([]);
   const [cardNavLove, setCardNavLove] = useState([]);
+
+  useEffect(() => {
+    setImgs(true);
+  }, []);
   // togol titel btn
   const [togolBtn, setTogolBtn] = useState(true);
   const togolFun = (names) => {
@@ -34,11 +40,13 @@ const Main = () => {
 
   const handelDashboard = (navName) => {
     if (navName === "Home") {
+      setImgs(true);
       setTitel({
         name: "Upgrade Your Tech Accessorize with Gadget Heaven Accessories",
       });
     }
     if (navName === "Dashboard") {
+      setImgs(false);
       setTitel({
         name: "Dashboard",
       });
@@ -46,6 +54,7 @@ const Main = () => {
   };
 
   const handelAddCard = (card, name) => {
+    toast.success("Product adding success");
     // console.log(name);
     if (name === "troly") {
       setCardData([...cardData, card]);
@@ -59,7 +68,6 @@ const Main = () => {
     setDataItem(item);
     if (imgs) {
       setImgs(false);
-      return;
     }
   };
 
@@ -82,6 +90,7 @@ const Main = () => {
         {/* header */}
         <div>
           <Header></Header>
+          {/* {imgs ? <BannerImg></BannerImg> : ""} */}
         </div>
         {/* outlet */}
         <div>

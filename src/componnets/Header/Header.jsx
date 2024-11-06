@@ -6,6 +6,7 @@ import HederTitel from "./HederTitel";
 import { useContext } from "react";
 import { handelDitailsContext } from "../Main/Main";
 import BannerImg from "../Header2/BannerImg";
+import { Helmet } from "react-helmet";
 //
 
 const Header = () => {
@@ -18,6 +19,9 @@ const Header = () => {
   // console.log(imgs);
   return (
     <div className="bg-violet-800 mt-3  rounded-xl">
+      <Helmet>
+        <title>Gadget Heaven</title>
+      </Helmet>
       <div className="  flex items-center justify-between px-8 py-5">
         <h3 className=" text-center font-bold text-violet-400">
           Gadget Heaven

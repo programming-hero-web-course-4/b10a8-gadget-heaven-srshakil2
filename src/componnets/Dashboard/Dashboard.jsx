@@ -1,27 +1,45 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { handelDitailsContext } from "../Main/Main";
+
+import { Helmet } from "react-helmet";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const { cardData } = useContext(handelDitailsContext);
   const { togolBtn } = useContext(handelDitailsContext);
   const [itemsData, setItemsData] = useState(cardData);
+  const [mony, setMony] = useState(0);
 
-  // ai khan thake kaj suru hobe...
-  const sortBtn = async () => {
-    const dataSort = await itemsData.sort((a, b) => b.price - a.price);
+  useEffect(() => {
+    cardData.map((itemCost) => {
+      const total = itemCost.price + mony;
+      setMony(total);
+    });
+  }, [cardData]);
+  const deletBtn = (id) => {
+    console.log(id);
+    const deletData = itemsData.filter((i) => i.product_id !== id);
+    setItemsData(deletData);
+  };
+  const sortBtn = () => {
+    const dataSort = itemsData.sort((a, b) => b.price - a.price);
     setItemsData(dataSort);
+    toast.success("Data sorting success");
   };
 
   // const { price, product_image, category, description } = cardData;
   return (
     <div className="py-7">
+      <Helmet>
+        <title>Dashboard</title>
+      </Helmet>
       <div>
         {togolBtn ? (
           <div className=" flex items-center justify-between">
             <h3 className=" text-xl font-semibold text-center ">Cart</h3>
             <div className=" flex items-center gap-3">
               <h3 className=" text-lg font-semibold text-center">
-                Total Cost : {"555"}
+                Total Cost : {mony}
               </h3>
               <button
                 className=" btn text-center text-lg rounded-full border-2"
@@ -68,7 +86,10 @@ const Dashboard = () => {
               )}
             </div>
           </div>
-          <div className=" absolute top-1 right-1">
+          <div
+            className=" absolute top-1 right-1"
+            onClick={() => deletBtn(data.product_id)}
+          >
             <button>
               <img
                 src="https://img.icons8.com/?size=24&id=99950&format=png"
